@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvbkxs885bbiy"]
+
+[ext_resource type="PackedScene" uid="uid://c4tpfbxnjg83o" path="res://jugador.tscn" id="1_m7tbw"]
+[ext_resource type="Texture2D" uid="uid://dvvb6ogbngva1" path="res://1.png" id="1_rrtif"]
+[ext_resource type="PackedScene" uid="uid://cshwq4macd4x7" path="res://nivel.tscn" id="2_rrtif"]
+
+[node name="Principal" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578, 319)
+scale = Vector2(1.98611, 1.97531)
+texture = ExtResource("1_rrtif")
+
+[node name="Jugador" parent="." instance=ExtResource("1_m7tbw")]
+position = Vector2(249, 416)
+
+[node name="Nivel" parent="." instance=ExtResource("2_rrtif")]
+position = Vector2(71, 39)

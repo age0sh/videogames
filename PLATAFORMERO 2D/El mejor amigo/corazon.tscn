@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://jgpci8la36py"]
+
+[ext_resource type="Texture2D" uid="uid://c5it15ywnbgky" path="res://2D pixel art character with animations - dog sprites/Platformer/Sprites/Spritesheet.png" id="1_6lgpw"]
+[ext_resource type="Script" uid="uid://qcu2fth2rbhi" path="res://corazon.gd" id="1_mrjdn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrjdn"]
+radius = 3.14286
+height = 6.28572
+
+[node name="Corazon" type="Area2D"]
+script = ExtResource("1_mrjdn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(11, 8)
+scale = Vector2(1.03846, 0.954545)
+texture = ExtResource("1_6lgpw")
+region_enabled = true
+region_rect = Rect2(66, 36, 13, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11, 8)
+scale = Vector2(1.03846, 0.954545)
+shape = SubResource("CapsuleShape2D_mrjdn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

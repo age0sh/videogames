@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpk2uwluar2ve"
+path="res://.godot/imported/Terraria Music - Mushrooms.mp3-d9f06a7c74fa33b418f5d47a160a45a2.mp3str"
+
+[deps]
+
+source_file="res://Terraria Music - Mushrooms.mp3"
+dest_files=["res://.godot/imported/Terraria Music - Mushrooms.mp3-d9f06a7c74fa33b418f5d47a160a45a2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://da6fjp2e1jvy3"]
+
+[ext_resource type="Script" uid="uid://bbejmgo7jvqw5" path="res://moneda.gd" id="1_r4iok"]
+[ext_resource type="Texture2D" uid="uid://c5it15ywnbgky" path="res://2D pixel art character with animations - dog sprites/Platformer/Sprites/Spritesheet.png" id="2_r4iok"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r4iok"]
+radius = 4.0
+
+[node name="Moneda" type="Area2D"]
+script = ExtResource("1_r4iok")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_r4iok")
+region_enabled = true
+region_rect = Rect2(49, 32, 14, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r4iok")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

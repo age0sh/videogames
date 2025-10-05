@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxq1v0o58dyea"]
+
+[ext_resource type="Script" uid="uid://h5xereg6l0l7" path="res://creditos.gd" id="1_ilafw"]
+[ext_resource type="Texture2D" uid="uid://dvvb6ogbngva1" path="res://1.png" id="2_7flbs"]
+
+[node name="Creditos" type="Control"]
+layout_mode = 3
+anchor_right = 0.14
+anchor_bottom = 0.102
+offset_left = 603.0
+offset_top = 272.0
+offset_right = 481.72
+offset_bottom = 245.904
+script = ExtResource("1_ilafw")
+
+[node name="fondo" type="Sprite2D" parent="."]
+position = Vector2(-28, 50)
+scale = Vector2(4.50781, 2.51563)
+texture = ExtResource("2_7flbs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "GRACIAS POR JUGAR"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

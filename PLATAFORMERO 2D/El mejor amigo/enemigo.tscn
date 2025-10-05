@@ -1,0 +1,109 @@
+[gd_scene load_steps=15 format=3 uid="uid://c6dyjxpdhg2ye"]
+
+[ext_resource type="Script" uid="uid://do6i5fu4ilnq1" path="res://enemigo.gd" id="1_a5tj2"]
+[ext_resource type="Texture2D" uid="uid://dr5bihvyk0mou" path="res://2D pixel art character with animations - dog sprites/Platformer/Sprites/programmerArt.png" id="2_moxti"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnx68"]
+atlas = ExtResource("2_moxti")
+region = Rect2(30, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8qs0"]
+atlas = ExtResource("2_moxti")
+region = Rect2(46, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57rph"]
+atlas = ExtResource("2_moxti")
+region = Rect2(62, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db8mt"]
+atlas = ExtResource("2_moxti")
+region = Rect2(78, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypu82"]
+atlas = ExtResource("2_moxti")
+region = Rect2(94, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2h2s"]
+atlas = ExtResource("2_moxti")
+region = Rect2(110, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhm17"]
+atlas = ExtResource("2_moxti")
+region = Rect2(126, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3is7"]
+atlas = ExtResource("2_moxti")
+region = Rect2(142, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ej7t8"]
+atlas = ExtResource("2_moxti")
+region = Rect2(158, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shx06"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnx68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8qs0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57rph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_db8mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypu82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2h2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhm17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3is7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ej7t8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m1d5w"]
+radius = 4.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a5tj2"]
+radius = 6.0
+height = 18.0
+
+[node name="Enemigo" type="CharacterBody2D" groups=["enemigo"]]
+script = ExtResource("1_a5tj2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2, -2)
+sprite_frames = SubResource("SpriteFrames_shx06")
+animation = &"walk"
+frame_progress = 0.699286
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 7)
+shape = SubResource("CapsuleShape2D_m1d5w")
+
+[node name="DamageBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
+position = Vector2(-2, 7)
+shape = SubResource("CapsuleShape2D_a5tj2")
+
+[node name="LedgeDetector" type="RayCast2D" parent="."]
+position = Vector2(3, 8)
+target_position = Vector2(0, 26)
+
+[connection signal="body_entered" from="DamageBox" to="." method="_on_damage_box_body_entered"]

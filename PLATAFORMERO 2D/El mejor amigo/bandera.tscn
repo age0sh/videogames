@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cesqbpwd7hb62"]
+
+[ext_resource type="Script" uid="uid://dprha78xydeoc" path="res://bandera.gd" id="1_phhtn"]
+[ext_resource type="Texture2D" uid="uid://x5tjb3x82smk" path="res://2D pixel art character with animations - dog sprites/Platformer/Sprites/flag.png" id="2_3p2oq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6n4bu"]
+size = Vector2(7, 30)
+
+[node name="Bandera" type="Area2D"]
+script = ExtResource("1_phhtn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3p2oq")
+region_enabled = true
+region_rect = Rect2(112, 0.313847, 17, 31.7775)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6n4bu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

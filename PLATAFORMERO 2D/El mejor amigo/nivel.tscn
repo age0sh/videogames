@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=3 uid="uid://cshwq4macd4x7"]
+
+[ext_resource type="Script" uid="uid://b1w73tlw501d3" path="res://nivel.gd" id="1_h06de"]
+[ext_resource type="Texture2D" uid="uid://c5it15ywnbgky" path="res://2D pixel art character with animations - dog sprites/Platformer/Sprites/Spritesheet.png" id="1_wrbek"]
+[ext_resource type="Texture2D" uid="uid://dvvb6ogbngva1" path="res://1.png" id="2_ymy7k"]
+[ext_resource type="PackedScene" uid="uid://jgpci8la36py" path="res://corazon.tscn" id="3_7gdj4"]
+[ext_resource type="PackedScene" uid="uid://c6dyjxpdhg2ye" path="res://enemigo.tscn" id="3_j87l1"]
+[ext_resource type="PackedScene" uid="uid://c4tpfbxnjg83o" path="res://jugador.tscn" id="6_vttml"]
+[ext_resource type="PackedScene" uid="uid://da6fjp2e1jvy3" path="res://moneda.tscn" id="7_6apml"]
+[ext_resource type="PackedScene" uid="uid://dvss43iofheq6" path="res://hud.tscn" id="8_d04yg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h06de"]
+texture = ExtResource("1_wrbek")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 2.33816, 8, 2.33816, 8, 5.75548, -8, 5.03605)
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7gdj4"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_h06de")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrbek"]
+size = Vector2(20, 358)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h06de"]
+size = Vector2(20, 373)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gdj4"]
+size = Vector2(679, 20)
+
+[node name="Nivel" type="Node2D"]
+script = ExtResource("1_h06de")
+
+[node name="HUD" parent="." instance=ExtResource("8_d04yg")]
+
+[node name="fondo" type="Sprite2D" parent="."]
+position = Vector2(621, 443)
+scale = Vector2(1.98611, 1.97531)
+texture = ExtResource("2_ymy7k")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(160, 216)
+tile_set = SubResource("TileSet_7gdj4")
+format = 2
+layer_0/tile_data = PackedInt32Array(786436, 0, 1, 851972, 0, 2, 786437, 0, 1, 851973, 0, 2, 786438, 0, 1, 851974, 0, 2, 786439, 0, 1, 851975, 0, 2, 786440, 0, 1, 851976, 0, 2, 786441, 0, 1, 851977, 0, 2, 786442, 0, 1, 851978, 0, 2, 786443, 0, 1, 851979, 0, 2, 786444, 0, 1, 851980, 0, 2, 786445, 0, 1, 851981, 0, 2, 786446, 0, 1, 851982, 0, 2, 786447, 0, 1, 851983, 0, 2, 786448, 0, 1, 851984, 0, 2, 786449, 0, 1, 851985, 0, 2, 786450, 0, 1, 851986, 0, 2, 720915, 0, 1, 786451, 0, 2, 655380, 0, 1, 720916, 0, 2, 851987, 0, 2, 851988, 0, 2, 786452, 0, 2, 655383, 0, 1, 720919, 0, 2, 786455, 0, 2, 851991, 0, 2, 720920, 0, 2, 851993, 0, 2, 851992, 0, 2, 786456, 0, 2, 786457, 0, 2, 786458, 0, 2, 786459, 0, 2, 851994, 0, 2, 851995, 0, 2, 524321, 196608, 1, 458788, 196608, 1, 786469, 0, 1, 852005, 0, 2, 786470, 0, 1, 852006, 0, 2, 786471, 0, 1, 852007, 0, 2, 786472, 0, 1, 852008, 0, 2, 786473, 0, 1, 852009, 0, 2, 786474, 0, 1, 852010, 0, 2, 786475, 0, 1, 852011, 0, 2, 589854, 196608, 1, 720921, 0, 2, 720922, 0, 2, 720923, 0, 2, 917508, 0, 2, 983044, 0, 2, 1048580, 0, 2, 1114116, 0, 2, 1179652, 0, 2, 1245188, 0, 2, 1245189, 0, 2, 1245190, 0, 2, 1245191, 0, 2, 1245192, 0, 2, 1245193, 0, 2, 1245194, 0, 2, 1245195, 0, 2, 1245196, 0, 2, 1245197, 0, 2, 1245198, 0, 2, 1245199, 0, 2, 1245200, 0, 2, 1245201, 0, 2, 1245202, 0, 2, 1245203, 0, 2, 1245204, 0, 2, 1179668, 0, 2, 1114132, 0, 2, 1048596, 0, 2, 983060, 0, 2, 917524, 0, 2, 917523, 0, 2, 917522, 0, 2, 917521, 0, 2, 917520, 0, 2, 917519, 0, 2, 917518, 0, 2, 917517, 0, 2, 917516, 0, 2, 917515, 0, 2, 917514, 0, 2, 917513, 0, 2, 917512, 0, 2, 917511, 0, 2, 917510, 0, 2, 917509, 0, 2, 983045, 0, 2, 1048581, 0, 2, 1048582, 0, 2, 1048583, 0, 2, 1048584, 0, 2, 1048585, 0, 2, 983050, 0, 2, 983051, 0, 2, 983052, 0, 2, 983053, 0, 2, 983054, 0, 2, 983055, 0, 2, 983056, 0, 2, 983057, 0, 2, 983049, 0, 2, 983047, 0, 2, 983048, 0, 2, 983046, 0, 2, 1114117, 0, 2, 1179653, 0, 2, 1179654, 0, 2, 1114119, 0, 2, 1179655, 0, 2, 1114118, 0, 2, 1048586, 0, 2, 1048587, 0, 2, 1114120, 0, 2, 1179656, 0, 2, 1114121, 0, 2, 1114122, 0, 2, 1114123, 0, 2, 1048588, 0, 2, 1048589, 0, 2, 1048590, 0, 2, 1179657, 0, 2, 1114124, 0, 2, 1114125, 0, 2, 1048591, 0, 2, 1179658, 0, 2, 1179659, 0, 2, 1179660, 0, 2, 1114126, 0, 2, 1114127, 0, 2, 1048592, 0, 2, 1179661, 0, 2, 1048593, 0, 2, 1048594, 0, 2, 1179662, 0, 2, 1179663, 0, 2, 1114128, 0, 2, 1114129, 0, 2, 1048595, 0, 2, 1179664, 0, 2, 1179665, 0, 2, 1114130, 0, 2, 1114131, 0, 2, 1179667, 0, 2, 1179666, 0, 2, 983059, 0, 2, 983058, 0, 2, 917527, 0, 2, 983063, 0, 2, 1048599, 0, 2, 1114135, 0, 2, 1179671, 0, 2, 1245207, 0, 2, 1245208, 0, 2, 1245209, 0, 2, 1114139, 0, 2, 1048603, 0, 2, 1179675, 0, 2, 983067, 0, 2, 917531, 0, 2, 1114138, 0, 2, 1179674, 0, 2, 1048602, 0, 2, 983066, 0, 2, 917530, 0, 2, 1179673, 0, 2, 1114137, 0, 2, 1048601, 0, 2, 983065, 0, 2, 917529, 0, 2, 1114136, 0, 2, 1179672, 0, 2, 1048600, 0, 2, 983064, 0, 2, 917528, 0, 2, 917541, 0, 2, 983077, 0, 2, 1048613, 0, 2, 1114149, 0, 2, 1179685, 0, 2, 1245221, 0, 2, 1245222, 0, 2, 1245223, 0, 2, 1245224, 0, 2, 1245225, 0, 2, 1245226, 0, 2, 1245227, 0, 2, 1179691, 0, 2, 1114155, 0, 2, 1048619, 0, 2, 983083, 0, 2, 917547, 0, 2, 917546, 0, 2, 983081, 0, 2, 1048617, 0, 2, 1114153, 0, 2, 1179689, 0, 2, 917545, 0, 2, 983082, 0, 2, 1048618, 0, 2, 1114154, 0, 2, 1179690, 0, 2, 917544, 0, 2, 983080, 0, 2, 1048616, 0, 2, 1114151, 0, 2, 1048615, 0, 2, 983079, 0, 2, 917543, 0, 2, 1114152, 0, 2, 1179688, 0, 2, 1179687, 0, 2, 1179686, 0, 2, 1114150, 0, 2, 1048614, 0, 2, 983078, 0, 2, 917542, 0, 2, 1245211, 0, 2, 1245210, 0, 2, 655387, 0, 1, 655384, 0, 1, 655385, 0, 1, 655386, 0, 1)
+
+[node name="Enemigo" parent="TileMap" instance=ExtResource("3_j87l1")]
+position = Vector2(251, 175)
+
+[node name="limitleft" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limitleft"]
+position = Vector2(214, 261)
+shape = SubResource("RectangleShape2D_wrbek")
+
+[node name="limitright" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limitright"]
+position = Vector2(874, 252.5)
+shape = SubResource("RectangleShape2D_h06de")
+
+[node name="ZonaMortal" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaMortal"]
+position = Vector2(547, 485)
+shape = SubResource("RectangleShape2D_7gdj4")
+
+[node name="Corazon" parent="." instance=ExtResource("3_7gdj4")]
+position = Vector2(837, 388)
+
+[node name="Enemigo" parent="." instance=ExtResource("3_j87l1")]
+position = Vector2(586, 358)
+
+[node name="Jugador" parent="." instance=ExtResource("6_vttml")]
+position = Vector2(241, 386)
+
+[node name="Moneda" parent="." instance=ExtResource("7_6apml")]
+position = Vector2(743, 323)
+
+[node name="Moneda2" parent="." instance=ExtResource("7_6apml")]
+position = Vector2(650, 356)
+
+[connection signal="body_entered" from="ZonaMortal" to="." method="_on_zona_mortal_body_entered"]
